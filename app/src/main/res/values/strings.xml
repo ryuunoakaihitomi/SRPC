@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">SRPC</string>
+    <string name="app_title">StorageRuntimePermissionController</string>
+    <string name="device_admin_note">This app should set up <b>Device Owner!</b>\nClick here to copy a ADB command to do it.</string>
+    <string name="read">read</string>
+    <string name="write">write</string>
+    <string name="settings">Settings</string>
+    <string name="disable">Disable</string>
+    <string name="about">About</string>
+    <string name="noti_title_new_pkg_added">A new package added</string>
+    <string name="noti_content_new_pkg_added">Do you want to disable storage permission for it?</string>
+    <string name="alert_title_disable_admin">Disable this app permanently</string>
+    <string name="alert_msg_disable_admin">Do you want to remove this Device Owner? It can make this app unusable and uninstallable.</string>
+    <string name="pref_title_notify_new_pkg">Show a notification for new package</string>
+    <string name="pref_summery_notify_new_pkg">When a new manageable application is installed, a notification pops up to disable storage permission.</string>
+
+    <string name="pref_key_notify_new_pkg" translatable="false">notify_new_pkg</string>
+</resources>

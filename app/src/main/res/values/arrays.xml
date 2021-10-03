@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DevicePolicyManager#PERMISSION_GRANT_STATE_[DEFAULT, GRANTED, DENIED] -> [0, 1, 2] -->
+    <string-array name="perm_state">
+        <item>default</item>
+        <item>granted</item>
+        <item>denied</item>
+    </string-array>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SRPC</string>
+    <string name="app_title">存储运行时权限控制器</string>
+    <string name="device_admin_note">这个应用需要设置<b>设备拥有者</b>！\n点击这里复制一条用来这样做的ADB命令。</string>
+    <string name="read">读取</string>
+    <string name="write">写入</string>
+    <string name="settings">设置</string>
+    <string name="disable">禁用</string>
+    <string name="about">关于</string>
+    <string name="noti_title_new_pkg_added">一个新的软件包被添加</string>
+    <string name="noti_content_new_pkg_added">是否要为它禁用存储权限？</string>
+    <string name="alert_title_disable_admin">永久禁用此应用</string>
+    <string name="alert_msg_disable_admin">你需要移除这个设备管理器吗？这将使本应用不再可用且可被卸载。</string>
+    <string name="pref_title_notify_new_pkg">为新的应用显示一条通知</string>
+    <string name="pref_summery_notify_new_pkg">当一个可被管理的应用被安装时，一个通知将会弹出用以禁用存储权限。</string>
+</resources>
