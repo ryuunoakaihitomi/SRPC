@@ -70,17 +70,18 @@ public class MainActivity extends Activity {
         dpm = getSystemService(DevicePolicyManager.class);
 
         ListView listView = findViewById(R.id.list);
+        TextView tips = findViewById(R.id.tips);
 
         if (!Utils.isDeviceOwner(this)) {
-            TextView tips = findViewById(R.id.tips);
             tips.setVisibility(View.VISIBLE);
+            final String command = "adb shell dpm set-device-owner " + r.flattenToShortString();
             tips.setText(R.string.device_admin_note);
             tips.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     ClipboardManager clipboard = getSystemService(ClipboardManager.class);
-                    clipboard.setPrimaryClip(ClipData.newPlainText(null, "adb shell dpm set-device-owner " + r.flattenToShortString()));
-                    Toast.makeText(getApplication(), getResources().getIdentifier("text_copied", "string", "android"), Toast.LENGTH_SHORT).show();
+                    clipboard.setPrimaryClip(ClipData.newPlainText(null, command));
+                    Toast.makeText(getApplication(), command, Toast.LENGTH_SHORT).show();
                 }
             });
             listView.setVisibility(View.GONE);
@@ -89,6 +90,7 @@ public class MainActivity extends Activity {
 
             PackageManager pm = getPackageManager();
             List<ItemInfo> itemInfoList = new ArrayList<>();
+            boolean appListed = false;
 
             for (PackageInfo pkgInfo : pm.getInstalledPackages(PackageManager.GET_PERMISSIONS)) {
                 ApplicationInfo appInfo = pkgInfo.applicationInfo;
@@ -105,9 +107,15 @@ public class MainActivity extends Activity {
                     item.rState = getStoragePermissionGrantState(packageName, false);
                     item.wState = getStoragePermissionGrantState(packageName, true);
                     itemInfoList.add(item);
+                    appListed = true;
                 }
             }
 
+            if (!appListed) {
+                tips.setVisibility(View.VISIBLE);
+                tips.setText(R.string.empty_app_list_note);
+                return;
+            }
 
             ItemInfoAdapter adapter = new ItemInfoAdapter(this, itemInfoList);
             listView.setAdapter(adapter);
@@ -153,7 +161,7 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(this, SettingsActivity.class));
                 break;
             case R.id.menu_disable_admin:
-                new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Dialog_Alert)
+                new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault)
                         .setTitle(R.string.alert_title_disable_admin)
                         .setMessage(R.string.alert_msg_disable_admin)
                         .setIcon(android.R.drawable.ic_dialog_info)

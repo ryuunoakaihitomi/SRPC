@@ -13,6 +13,7 @@
     <string name="alert_msg_disable_admin">Do you want to remove this Device Owner? It can make this app unusable and uninstallable.</string>
     <string name="pref_title_notify_new_pkg">Show a notification for new package</string>
     <string name="pref_summery_notify_new_pkg">When a new manageable application is installed, a notification pops up to disable storage permission.</string>
+    <string name="empty_app_list_note">There are no compatible apps here.\n(Has storage permission &amp; targetSdkVersion > 23)</string>
 
     <string name="pref_key_notify_new_pkg" translatable="false">notify_new_pkg</string>
 </resources>

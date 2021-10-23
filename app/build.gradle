@@ -9,8 +9,9 @@ android {
         applicationId "github.ryuunoakaihitomi.srpc"
         minSdk 23
         targetSdk 23
-        versionCode 1
-        versionName "final"
+        versionCode 2
+        versionName "final (1)"
+        setProperty("archivesBaseName", "srpc")
     }
 
     buildTypes {
